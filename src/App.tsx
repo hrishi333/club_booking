@@ -1,24 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-
+import { HashRouter as  Router, Route, Routes } from 'react-router-dom';
+import AdminTableOfClub  from "./components/AdminTableOfClub"
+import Home from "./views/Home";
+import AdminView from "./views/AdminView";
+import CustomerView from "./views/CustomerView";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Router>
+            <Routes>
+                <Route path="/" element={<Home/>}/>
+                <Route path="/admin" element={<AdminView/>} />
+                <Route path="/customer" element={<CustomerView/>} />
+            </Routes>
+        </Router>
+
     </div>
   );
 }
