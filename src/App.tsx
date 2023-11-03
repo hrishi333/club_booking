@@ -5,7 +5,6 @@ import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 
-import AdminTableOfClub from "./components/AdminTableOfClub";
 import Home from "./views/Home";
 import AdminView from "./views/AdminView";
 import CustomerView from "./views/CustomerView";

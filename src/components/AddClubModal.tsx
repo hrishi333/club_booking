@@ -1,6 +1,5 @@
 import React, {useState} from "react";
-import {Button, Modal, Upload, message} from "antd";
-import {UploadOutlined} from "@ant-design/icons";
+import {Button, Modal} from "antd";
 import {toast} from "react-toastify";
 
 const AddClubMdal: React.FC<{
@@ -29,12 +28,9 @@ const AddClubMdal: React.FC<{
     const handleFileChange = (e: any) => {
         const selectedFile = e.target.files[0];
 
-        // Check if a file is selected
         if (selectedFile) {
-            // Check file type
             const allowedTypes = ["image/jpeg", "image/png", "image/gif"];
             if (allowedTypes.includes(selectedFile.type)) {
-                // Check file size (500KB limit)
                 if (selectedFile.size <= 500 * 1024) {
                     const reader = new FileReader();
 
@@ -66,8 +62,6 @@ const AddClubMdal: React.FC<{
     };
 
     const handleSubmit = () => {
-        console.log(formData, "data");
-
         const validationErrors = {
             name: "",
             price: "",
@@ -91,8 +85,6 @@ const AddClubMdal: React.FC<{
         }
 
         setErrors(validationErrors);
-        console.log(validationErrors,"list err");
-        console.log(Object.values(validationErrors).every((error) => !error),"check")
         if (Object.values(validationErrors).every((error) => !error)) {
             onSubmit(formData);
             setFormData({
@@ -109,9 +101,7 @@ const AddClubMdal: React.FC<{
 
     const handleFacilitiesChange = (e: any) => {
         const inputValue = e.target.value;
-        // Split the input by commas and trim any extra spaces
         const facilitiesArray = inputValue.split(',').map((facility: string) => facility.trim());
-        // Update the formData with the new array
         setFormData({...formData, facilities: facilitiesArray});
     };
 

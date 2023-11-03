@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {Card, Button, Modal} from "antd";
 import {toast} from "react-toastify";
-import Title from "antd/es/skeleton/Title";
 
 const { Meta } = Card;
 
